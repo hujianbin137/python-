@@ -1,0 +1,42 @@
+刷题 -->	剑指offer python版 66道题 40%  牛客网
+十大排序 --> 	快排&归并
+250919354@qq.com 郭君宇邮箱 1907-xxx中心-某某某-问题  
+
+二叉树:树太高/每次向下查找都是一次磁盘IO
+多路查找:
+	1.B树  每个节点多叉/路,即存储索引也存储了数据
+	2.B+树  每个节点只存索引/数据统一存放在叶子节点/叶子节点索引是有序的且相连的
+
+sudo cp -fr 文件/文件夹 目的地址 [强制递归复制]
+ll [查看权限]
+chmod 666 文件 [让当前文件具备 rw-rw-rw]
+chmod 777 文件 [让当前文件具备全部权限 rwx-rwx-rwx]
+
+
+公有云 ubuntu 18.04
+
+A机器上 mysql 网络服务  xxx.xxx.xxx.xxx:3306  单机版
+用户A 先登录到 A机器上 mysql -uroot -p123456
+
+用户A 用笔记本 链接 A机器的mysql
+
+
+pip3 freeze|grep 'Django' 确认当前环境Django版本
+1.11.8版本
+
+如果不是,执行如下操作
+sudo pip3 uninstall Django
+sudo pip3 install Django==1.11.8
+
+安装
+pip3 install celery
+
+关系:
+1:1 在任意一表中 添加外键 并且 唯一约束
+1:n 在n表上添加外键
+m:n 要添加中间表 中间表三个字段[id,外键1,外键2]
+
+事务
+要么全成功 要么全失败
+
+

@@ -1,0 +1,53 @@
+创建项目的指令
+django-admin startproject 项目名称
+
+启动服务
+python3 manage.py runserver
+
+创建应用
+python3 manage.py startapp 应用名
+INSTALLED_APPS = []     [注册应用]
+
+创建数据库
+create database 数据库名 default charset utf8;
+
+还要在项目同名下的__init__ 里配置
+import pymysql
+pymysql.install_as_MySQLdb()
+
+文件迁移
+python3 manage.py makemigrations  [生成迁移文件]
+python3 manage.py migrate	  [将迁移文件中的表结构同步至数据库]
+
+settings.py 初始修改配置
+DEBUG = True  [正式上线之前的调试模式]
+LANGUAGE_CODE 中文 : "zh-Hans"  [中文]
+TIME_ZONE 中国时区 : "Asia/Shanghai"  [上海时间]
+
+数据库配置
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '数据库名',
+	'USER':'root',
+	'PASSWORD':'123456',
+	'HOST':'127.0.0.1',
+	'PORT':'3306',
+    }
+}
+
+静态文件配置 [不重要]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR,"static"),)
+
+头像上传
+	主路由
+	# 绑定 media_url 和 media_root,显性操作
+	# 127.0.0.1:8000/media/ -> MEDIA_ROOT
+	urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+	# 用户上传的 文件或者音视频,图片 - media
+	# 文件存储目录
+	MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+	# 浏览器 访问文件的地址 http://127.0.0.1:8000/media/...
+	MEDIA_URL = '/media/'

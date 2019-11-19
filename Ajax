@@ -1,0 +1,56 @@
+发异步请求
+	1.浏览器没有整页刷新[根据服务器的响应 局部刷新]
+	  搜索建议/表单的验证
+	2.xhr - 代理
+		1.创建xhr对象
+		2.创建请求对象 get
+		3.设置xhr的回调
+			xhr状态 - 4  &&  响应状态 - 200
+			获取响应
+		4.触发发送指令 - send
+
+ajax post请求
+	1.改掉请求头 Content-Type   application/x-www-form-urlencoded  表单提交
+	2.页面中使用 {% csrf_token %}  csrfmiddlewaretoken=value
+	3.xhr.send('post提交参数')
+	4.xhr.open('post',url,true|false)
+
+
+jquery ajax的支持
+	$().load(url,data,function(){})
+		data:查询字符串 key1=value&key2=value2  GET请求
+		     js对象  {key1:value,csrfmiddlewaretoken:xx} POST请求
+		url: '/ajax/test_load 选择器'  load局部元素到指定位置
+
+	$.get  $.post
+		$.get(url,data,callback,type)
+
+	$.ajax() - 对ajax请求最全的支持  [重度练习并会使用  高频]
+		success - 成功的时候回调
+		error - 异常回调
+		beforeSend - 发请求之前回调,如果return false 此次请求终止![请求不发送]
+
+跨域 - 只能发GET请求
+	浏览器的一个安全策略 - 同源策略
+		同源 - 协议相同,域名相同,端口相同
+	跨域方案
+	方案1:<script src='跨域地址'></script>
+	      前段 - 预留函数
+	      后端 - 返回js代码 [预留函数(返回数据)]	
+	方案2:jquery   $.ajax() -> jsonp
+		dataType:'jsonp'		
+		jsonp:'callback'
+		jsonpCallback:'预留函数名'
+	方案3:$.ajax() -> jsonp
+		不需要前端写预留函数
+		dataType:'jsonp'
+		success:function(data){}
+
+python中的json处理
+	sort_keys:输出的json串,按键值排序
+	separators:(第一个参数,第二个参数) - 第一个参数:每个键值对之间的分隔符
+					    第二个参数:每个key和其对应的value之间拿什么分隔
+
+序列化    :对象->字符串 import json   json.dumps(数组|字典|元组)
+反序列化  :字符串->对象  前台 JSON.parse('json字符串') ->json对象
+

@@ -1,0 +1,89 @@
+创建网页文件,可以使用.html或.htm作为文件后缀。
+添加网页的基本结构:
+	<!--告知浏览器文档所使用的 HTML 规范--> wml/NITF 无线标记语言/音乐标记语言
+	<!doctype html>
+	<html>
+	<head>
+	<title>网页标题</title>
+	<!--规定 HTML 文档的字符编码-->
+	<meta charset="utf-8">
+	<!--设置移动端页面宽度和初始的缩放比例 页面的宽度为设备宽度,初始比例为1-->
+	<meta name="viewport" content="width=device-width, initial-
+	scale=1.0">
+	<!--定义浏览器渲染时的兼容方式,使用ie内核浏览器访问,使用它的最高版本-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	</head>
+	<body>
+	网页主体内容
+	</body>
+	</html>
+
+注释语法： <!-- 此处为注释 -->
+<h1>一级标题</h1>
+<h2>二级标题</h2>
+<h3>三级标题</h3>
+<h4>四级标题</h4>
+<h5>五级标题</h5>
+<h6>六级标题</h6>
+<p>段落文本</p>
+<b>加粗标签</b>
+<strong>强调标签,效果同b标签</strong>
+<i>斜体标签</i>
+<del>删除标签</del>
+<span>行分区标签,用于对特殊文本特殊处理</span>
+<label>普通文本标签,常与表单控件结合实现文本与控件的绑定</label>
+换行标签:<br>
+水平线标签,在页面中插入一条水平分割线：<hr>
+字符实体:
+	使用 &lt; 在页面中呈现 "<"
+	使用 &gt; 在页面中呈现 ">"
+	使用 &nbsp; 在页面中呈现一个空格
+	使用 &copy; 在页面中呈现版权符号"©"
+	使用 &yen; 在页面中呈现人民币符号"¥"
+
+容器标签： div
+图片与超链接标签(内联 / 块 标签)
+	图片标签 :用于在网页中插入一张图片。
+	1. 属性 src 用于给出图片的URL,必填。
+	2. 属性 width/height 用于设置图片尺寸,取像素值,默认按照图片的原始尺寸显示。
+	3. 属性 title 用于设置图片标题,鼠标悬停在图片上时显示
+	4. 属性 alt 用于设置图片加载失败后的提示文本
+	语法:
+	<img src="" width="" height="" title="" alt="">
+超链接标签:用户可以点击超链接实现跳转至其他页面
+	1. 属性 href 用于设置目标文件的URL,必填。
+	2. 属性 target 用于设置目标文件的打开方式,默认在当前窗口打开。可以设置新建窗口打
+	开目标文本(取"_blank")
+	<a href="http://www.taobao.com" target="_self">淘宝</a>
+	<a href="http://www.baidu.com" target="_blank">百度</a>
+
+列表标签：
+	无序列表：
+		<ul>
+			<li>list item 列表项</li>
+			<li>list item 列表项</li>
+			<li>list item 列表项</li>
+		</ul>
+
+表单标签：
+	<form action="">
+		<!--此处为表单控件-->
+	</form>
+
+	action 设置数据的提交地址
+	method 设置数据的提交方式,默认为get方式,可以设置为post
+
+	type 设置控件类型
+	name 设置控件名称,最终与值一并发送给服务器
+	value 设置控件的值
+	placeholder 设置输入框中的提示文本
+	maxlength 设置输入框中可输入的最大字符数
+	checked 设置单选按钮或复选按钮的默认选中
+	selected 设置下拉菜单的默认选中
+
+标签间的转换：display 属性
+	none 此元素不会被显示
+	block 此元素将显示为块级元素,此元素前后会带有换行符
+	inline 默认。此元素会被显示为内联元素,元素前后没有换行符
+	inline-block 行内块元素
+图片包容器：figure   也是块元素

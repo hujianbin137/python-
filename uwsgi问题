@@ -1,0 +1,11 @@
+注意:
+当uwsgi执行 uwsgi --stop uwsgi.pid 失败时,请执行如下命令
+	ps aux|grep 'uwsgi'
+	sudo kill -9 进程id1 进程id2
+执行失败原因:在已经启动uwsgi的情况下,重复执行启动uwsgi命令,导致uwsgi.pid与实际启动的进程id不符
+
+正式环境中,Django中代码一旦修改,只有重启uwsgi最新代码才能生效
+
+浏览器两个特殊现象:
+	1.浏览器 无法连接 - nginx 有问题
+	2.502错误 - nginx已启动 但是uwsgi大概率没启动 或者nginx 配置中代理的ip和端口,跟您uwsgi配置中的ip 端口不一致

@@ -1,0 +1,34 @@
+哈希三大特点 - 定长输出[无论输入多长,输出都为定长],雪崩[一变则巨变],不可逆[无法反算回明文]
+自行处理密码存储策略  cmd5 解密文
+1.当用户注册时,将用户传递过来的明文密码进行 如 md5 sha 系列的哈希算法[散列];
+	pw = request.POST.get('password')
+	# pw += 'salt' 加盐处理
+	import hashlib
+	m5 = hashlib.md5()
+	m5.update(pw.encode())
+	pw_md5 = md5.hexdigest()
+2.当用户登录时
+	# 用户登录时填写的密码
+	pw = request.POST.get('password')
+	# pw += 'salt' 加盐处理
+	import hashlib
+	m5 = hashlib.md5()
+	m5.update(pw.encode())
+	pw_md5 = md5.hexdigest()
+
+	user = User.objects.get(username=username)
+	if user.password != pw_md5:
+		return '用户名或密码错误'
+
+uvvxjhrbkvbgebaf
+
+window系统搜xshell安装中文版 走 ssh 协议 链接公有云
+
+
+linux系统 终端里 ssh  用户名@公网地址/ubuntu@公网ip
+
+
+ps aux|grep 'uwsgi' 查看
+cat uwsgi.pid
+sudo kill -9 进程号  杀掉进程
+top 在终端查看cpu  q退出

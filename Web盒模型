@@ -1,0 +1,31 @@
+外边距：margin 可以用负数
+边框：border:width style color;
+	样式取值：
+		solid   实线边框
+		dotted  点线边框
+		dashed  虚线边框
+		double  双线边框
+圆角边框：border-radius 指定圆角半径
+			取值：像素值或百分比
+轮廓线：outline  取值： width style color
+			none 取消文本输入框默认轮廓线
+内边距：padding
+盒阴影：box-shadow 
+	取值：	h-shadow 取像素值,阴影的水平偏移距离
+		v-shadow 取像素值,阴影的垂直偏移距离
+		blur 取像素值,表示阴影的模糊程度,值越大越模糊
+		spread 选填,取像素值,阴影的尺寸
+		color 设置阴影颜色,默认为黑色
+背景颜色：background-color:red;
+背景图片：background-image:url('路径')；
+设置背景图片的重复方式：background-repeat:repeat/repeat-x/repeat-y/no-repeat
+	取值 :
+		repeat   默认值,沿水平和垂直方向重复平铺
+		repeat-x 沿X轴重复平铺
+		repeat-y 沿Y轴重复平铺
+		no-repeat 不重复平铺
+设置背景图片的显示位置：background-position:x y;
+设置背景图片的尺寸：background-size:width height;
+背景属性简写：background:color url("") repeat position;
+
+	

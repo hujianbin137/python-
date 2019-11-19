@@ -1,0 +1,18 @@
+nginx + uwsgi + Django 部署
+
+nginx:负责接收所有用户请求的 http server;
+1.反向代理
+2.负载均衡
+
+uwsgi [胶水层]:实现了WSGI协议的服务  [通用网关接口];将nginx转发过来的请求传递给Django
+
+静态文件的处理:
+	location /static{
+		root 项目的绝对路径
+	}
+
+排错日志
+	nginx  /var/log/nginx/error.log
+	uwsgi  uwsgi.log  详细路径参考uwsgi.ini配置
+
+

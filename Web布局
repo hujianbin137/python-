@@ -1,0 +1,32 @@
+默认布局：
+	margin
+浮动布局：
+	float
+定位布局：
+	position
+	1、相对定位：relative
+		元素设置相对定位,可参照元素在文档中的原始位置进行偏移,不会脱离文档流
+	2、绝对定位：absolute
+  		1.绝对定位的元素参照离他最近的已经定位的祖先元素进行偏移,如果没有,则参照窗口进行偏移：
+		2. 绝对定位的元素会脱流,在文档中不占位,可以手动设置宽高
+	3、固定定位fixed
+		1. 参照窗口进行定位,不跟随网页滚动而滚动
+		2. 脱离文档流
+文本装饰线： text-decoration:none;
+	取值 : underline 下划线 overline 上划线 line-through 删除线 none 取消装饰线
+堆叠次序：z-index
+设置字体大小:font_size:20px;
+设置字体粗细成都：font-weight:normal;
+	1. normal(默认值)等价于400
+	2. bold
+	(加粗) 等价于700
+设置斜体：font-style:italic;
+设置字体名称：font-family:Arial,'黑体'，'宋体'
+	1. 1.可以指定多个字体名称作为备选字体,使用逗号隔开
+	2. 如果字体名称为中文,或者名称中出现了空格,必须使用引号
+字体属性简写：font:style weight size family;
+	注意：
+		1. 如果四个属性值都必须设置,严格按照顺序书
+		2. size family 是必填项
+文本内容的水平对齐方式：text-align:center;
+行高：line-height:30px; 使文字垂直居中

@@ -1,0 +1,26 @@
+1.浏览器 - 发出请求时[浏览器地址栏回车/按钮/超链接-GET]
+优先检查是否有强缓存
+	1.如果没有强缓存,浏览器发出http请求至服务器端
+	2.有强缓存,但是缓存过期:
+		1.尝试协商缓存 - [Last_Modified/Etag]
+			1.Last_Modifier
+				把上次缓存响应头中的Last_Modifier的值 赋值给 if-Modifier-Since 请求头,发送至服务器;如果服务器端对比当前响应的Modified和请求头中一致,则返回304且响应体为空;否则返回200且响应中携带最新数据			
+			2.Etag
+				把上次缓存响应头中的Etag的值 赋值给 if-None-Match 请求头,剩余步骤同上
+
+
+1.缓存
+	1.后端缓存
+		我们将复杂的视图函数处理结果放到其他存储介质中,当用户下次访问该视图函数时,可跳过试图函数直接将结果从存储介质中获取并返回给用户
+	2.浏览器缓存	
+		每次浏览器发请求,先找找自己浏览器内部的缓存区域有没有数据,如果没有缓存,才发出真实http请求 - [协商缓存[原来有强缓存的时候,但是此次请求检查缓存时,缓存过期 & last_modified or Etag]/第一次请求获取数据]
+		协商缓存的结果:
+			304 代表当前缓存能用,您再使用一阵子,响应体为空
+			200 缓存的确过期了,响应全新数据
+
+上传文件&下载csv
+	上传: form enctype='muiltpart/form-data' method='post'
+		input type='file' name='myfile'	      
+		request.FILES['myfile']
+	下载csv: 1.换掉响应头中的 content-type -> 'text/csv'
+		 2.添加特殊的 附件 响应头 Content-Disposition:'attachment:filename="my.csv"'

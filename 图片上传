@@ -1,0 +1,11 @@
+图片上传
+settings.py
+	MEDIA_URL   MEDIA_ROOT
+
+2.添加路由 [主路由+分布式路由] - 开发调试环境中
+	主路由中 添加static方法 绑定上述两个配置
+	urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+分布式路由中 /(?P<username>\w{1,11})/avatar
+
+3.user.models 中添加ImageFiled(upload_to='avatar')
+4.users试图函数 具体用户数据返回时,添加avatar ,值为 str(user.avatar)

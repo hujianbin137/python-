@@ -1,0 +1,69 @@
+聚合查询:from django.db.models import Count,Max...
+	1.不分组
+		MyClass.objects.aggregate(字段列名=聚合函数('列'))
+		{'字段列名':}
+	2.分组
+		1.要分组的列 筛选出来
+		MyClass.objects.values('列')
+		2.QuerySet.annotate(字段列名=聚合函数('列'))
+F对象
+	update ... set 字段=字段+10
+Q对象
+	逻辑与/或/非
+	Q(条件)|Q(条件)  - 或
+	Q(条件)&Q(条件)  - 与
+	~Q(条件)         - 非
+原生语句操作数据库
+	1.MyClass.objects.raw('sql语句')
+	2.from django.db import connection
+	with connection.cursor() as cur:
+		cur.execute('sql语句')
+	更新,删除,复杂查询
+admin-后台
+	python3 manage.py createsuperuser
+	127.0.0.1/8000/admin/
+
+	app admin.py文件中 注册 自定义model类
+	admin.site.register(自定义模型类类名)
+
+	admin.py里添加 管理类
+	class xxxManage(admin.ModelAdmin):
+		类属性 = []
+	admin.site.register(自定义model类,xxxManage)
+
+	class Meta 内部类
+		db_table = '表名'
+		verbose_name = 'admin中该类显示名称'
+		verbose_name_plural = 'admin中该类的复数形式名称'
+Django中实现关系映射
+	1.一对一
+		models.OneToOneField(关联类类名)
+		正查:a.外键属性
+		反查:b.A类名小写
+	2.一对多
+		在多表中添加外键属性 models.ForeignKey(关联类类名)
+		正查:b.外键属性
+		反查:a.B[小写类名]_set
+	3.多对多
+		在任意一个类中声明一个类属性 models.ManyToManyField(关联类名)
+
+cookies	作用:
+	1.保持会话状态[保持用户登录状态]
+	2.购物车 - 未登录状态下的购物车记录
+	3.搜索引擎 - 记录当前您的搜索记录
+cookies 缺点:
+	1.数据存储在客户/用户端
+	2.每次请求网站,自动提交当前网站的cookies
+	3.网络带宽
+
+session 单表问题 -> django所有session数据存储在单个表中,表名为django_session,并且该表没有自动回收[过期的session],可执行 python3 manage.py clearsessions 命令进行 过期session的删除
+
+session 作用:
+		存储会话状态 - 登录状态
+	缺点:
+		单表[点]问题
+
+cookies 对比 session
+	1.存储位置不一样
+	2.存储大小不一样
+	3.cookies可自动提交

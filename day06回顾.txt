@@ -1,0 +1,46 @@
+day06 回顾
+
+Session会话
+1，当浏览器访问一个网站开始 到 关闭浏览器 这之间的整个过程，我们都称为 会话 - session
+
+Cookie存储 和 Session存储
+
+C - 存储在浏览器上
+S - 存储在服务器上 【django-mysql数据库django_session表里】
+
+Session存储
+1，根据用户浏览器 ，随机生成一个叫session_id的键 用于关联服务器中与该浏览器对应的存储空间
+2，session_id 创建后 会通过响应传给浏览器，浏览器将session_id存入自己的Cookie中
+3，由于Cookie每次在请求服务器时会自动提交该域下所有数据
+故，服务器可通过Cookie中的session_id取到对应的session
+
+Django中session的获取
+request.session [类字典对象] ->  可使用字典相关的方法进行
+存取
+
+python3 manage.py clearsessions 对过期的数据进行删除
+从而一定程度上避免 session表数据量过大的问题
+
+
+note
+models 数据库  -  表设计
+
+views   templates    admin
+
+web网站  特别卡 【浏览器 转圈圈】
+
+1，网速
+2，访问量 突增  ->  urls  views models templates
+
+
+
+
+
+
+
+
+
+
+
+
+

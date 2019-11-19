@@ -1,0 +1,13 @@
+BOM 周期性的定时器
+var taskId=setInterval(function(){
+
+},2000)
+clearInterval(taskId)
+
+一次性的定时器
+var taskId2=setTimeout(function(){
+
+},2000)
+clearTimeout(taskId2)
+
+

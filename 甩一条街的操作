@@ -1,0 +1,44 @@
+mysql>show variables like 'general%';
+
+mysql>set global general_log = 'ON';
+mysql>show variables like 'general%';
+mysql>set global general_log = 'OFF';
+如果是on,则在 general_log_file 值对应的文件地址中 /var/lib/mysql/tedu.log 可查看,所有发到mysql的语句
+开启后,进入python3 manage.py shell 可进行 orm语句的测试
+
+注意: objects.xxx 命令为惰性取值,只有在调用的时候,才发出sql语句
+
+s = book.objects.all()
+s[0] 切片/索引时,会调用sql语句
+迭代s的时候,会调用sql语句
+print(s)会调用sql语句
+
+进入超级用户权限 sudo su
+	tail -f /var/lib/mysql/tarena.log
+
+vim 常用命令
+	esc [退出插入模式]
+	:q [退出]
+	h [左移] l [右移] j [下移] k [上移]
+	i [在当前光标处进行插入]
+	x [未插入模式删除光标所在]
+	u [未插入模式撤回删除光标所在]
+	o [在当前行新起一个空行且进入插入模式]
+	:$ 或者 shift+g [立刻跳转到当前文件最后一行]
+	:set number [显示行号]
+	行数+shift+g [跳转到指定行数]
+	dd [可进行当前行的删除]
+	n [行数] + dd [可删除从当前行+(n-1)行的数据][包含当前行]
+	yy [复制当前光标行整行内容]  p [粘贴]
+	n [行数] + yy [可复制从当前行+(n-1)行的数据][包含当前行]
+	:sp [水平分屏]
+	:vs [垂直分屏]
+		注意:光标移动 ctrl + w + 方向移动[h,j,k,l]
+	v + 方向移动[h,j,k,l] [移动光标至欲复制内容结尾] + y [复制]
+	v + 方向移动[h,j,k,l] [移动光标至欲替换内容结尾] + p [粘贴]
+	
+	:E [打开当前文件所在路径下的列表页,在当前页可进行其他文件的查看,将光标移动到想查看的文件 执行回车键即可进入其vi模式]
+	
+	最终 做完内容修改后 切记需要执行保存
+	:w [保存]
+	:wq [保存并退出]

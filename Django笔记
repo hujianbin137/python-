@@ -1,0 +1,37 @@
+	1.分组
+		r'^page(\d+)' -> page_view(request, n) [django采用位置传参调用对应的视图函数]
+	2.命名分组
+		r'^page(?P<name>\d+)' -> page_view(request, name) [django采用关键字传参调用对应的视图函数] 
+
+视图函数 -> 项目同名目录下 创建了 views.py -> 
+def xxx_view(request,xx):
+	return HttpResponse/HttpResponseRedirect
+
+请求和响应
+GET  POST
+
+请求头 Content-Type:[提交数据的格式]
+	GET - 由于请求体为空,所以请求头中没有 该头
+	POST - 一定会有该头
+		html中 如果使用form标签 进行post提交,则浏览器会将该头的值赋值为 application/x-www-form-urlencoded	[Django中 检查到此次请求是该头的时候,可以使用request.POST 取值]
+
+		非表单提交 Django中 使用 request.body 取 请求体的值
+
+相应:
+	视图函数 返回一个 响应对象 HttpRespons[xxx]
+	code 200/302/404/403/500
+
+	响应头 - Content-Type - text/html;charset=utf-8
+		Location - 302 返回时携带此头,标记跳转的目的地
+
+
+遍历字典的key和value
+	1.只遍历key
+		{% for i in dic %}
+			{{ i }}
+		{% endfor %}
+
+	2.遍历key和value
+		{% for k,v in dic.items %}
+			键:{{ k }} 值:{{ v }}
+		{% endfor %}

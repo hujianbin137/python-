@@ -1,0 +1,21 @@
+技术选型:
+	整体架构:前后端分离
+	前端部分:nginx + html + js + css
+	后端部分:nginx + uwsgi + django + mysql
+	前后端分离原因:方便我们产品端进行 安卓或者ios端的扩展直接一步到位,完全采用前后端分离;前端主要负责所有页面渲染;后端只负责数据层面的返回【json】;
+
+我在项目中的定位&角色：后端全部功能
+遇到问题：【13488873118】
+	1、http无状态？ - jwt-token
+		base64
+		hmac
+		token设计思维  
+			header明确了算法和token种类
+			payload 公有声明&私有声明
+				公有：exp过期时间-时间戳
+				私有：username，uid，...
+			sign=HS256(key,header_bs + b'.' + payload_bs)
+			token=header_bs +b'.' + payload_bs + b'.' + sign_bs
+		经过这些细节的挖掘和学习，我独立实现了一套自己的token；jwt-header 考虑删除，减小 包大小
+
+	2、csrf - 由于Cookies不使用，取而代之需要前端用大量代码操作token从而达到权限方面的认证；攻击者无法模拟我方前端代码，攻击难度加大。

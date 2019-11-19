@@ -1,0 +1,18 @@
+CORS
+	1.简单请求
+		GET or POST or HEAD
+		只支持一些请求头
+		Content-Type 只支持两个表单头 一个纯文本头
+	2.预检请求
+		违反简单请求的任意条件 即为预检请求
+	区别:	
+		1.简单请求-自报家门 - origin:http://127.0.0.1:5000
+			服务器端 检查您是否可跨
+			OK - Access-control-allow-origin
+			NO - 响应不给上述头
+		2.预检请求 - OPTIONS 协商是否能跨域
+			如果能跨 即刻 发出 真实请求
+
+RESTful api
+	1.只看接口 便明其义
+	2.url中尽量避免使用动词,名词化;
